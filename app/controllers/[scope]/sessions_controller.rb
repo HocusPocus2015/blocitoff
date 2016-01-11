@@ -6,7 +6,8 @@ class [scope]::SessionsController < Devise::SessionsController
       BackgroundWorker.trigger(resource) #triggers background jobs like flash[:notice] or flash[:alert] 
     end
   end
-# before_filter :configure_sign_in_params, only: [:create]
+
+ before_filter :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   # def new
