@@ -1,0 +1,4 @@
+<%= form_for([@list.list_item.build]) do |f| %>
+  <%= f.text_field :body, placeholder: "New List Title" %>
+  <%= f.submit %>
+<% end %>

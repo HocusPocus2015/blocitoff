@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :lists, except: [:index]
+  resources :lists
+  resources :list_items, except: [:index, :show]
   devise_for :users
   get "home/index"
   get "about" => "home#about"
