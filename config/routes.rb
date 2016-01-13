@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
-
+  resources :lists, except: [:index]
   devise_for :users
+  get "home/index"
+  get "about" => "home#about"
 #    sign_in: "login", sign_out: "logout",
 #    password: "secret", confirmation: "verification",
 #    registration: "register", edit: "edit/profile"

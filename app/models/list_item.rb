@@ -1,7 +1,7 @@
 class ListItem < ActiveRecord::Base
   belongs_to :list
-  belongs_to :user
+#  belongs_to :user
   
-  validates :list, presence: true
-  validates :user, presence: true
+#  validates :list, presence: true
+#  validates :user, presence: true
 end
