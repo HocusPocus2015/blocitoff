@@ -46,3 +46,4 @@ group :development do
 end
 
 gem 'devise' #flexible authentication solution for Rails with Warden
+gem 'figaro', '1.0' #use ActiveModel has_secure_password
