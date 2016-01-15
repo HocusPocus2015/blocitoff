@@ -1,10 +1,12 @@
 class ListItemsController < ApplicationController
+  respond_to :html, :js
   def create
     @list = List.find(params[:list_id])
-    @list_item = list_item.new(list_item_params)
-    authorize @list_item
-    if @list)item.save
-      redirect_to @list_item, notice: "Item saved"
+    @list_item = ListItem.new(list_item_params)
+    @list_item.list = @list
+    #authorize @list_item
+    if @list_item.save
+      redirect_to list_path(@list), notice: "Item saved."
     else
       flash[:error] = "There was an error. Please try again"
       render :new
@@ -13,12 +15,16 @@ class ListItemsController < ApplicationController
   
   def destroy
     @list = List.find(params[:list_id])
-    @list_item = list_item.find(params[:id])
-    authorize @list_item
+    @list_item = Listitem.find(params[:id])
+    #authorize @list_item
     if @list_item.destroy
       flash[:notice] = "Item deleted"
     else
       flash[:error] = "There was an error. Please try again"
+    end
+    
+    respond_with(@list_item) do |format|
+      format.html { redirect_to list_path(@list) }
     end
   end
   
