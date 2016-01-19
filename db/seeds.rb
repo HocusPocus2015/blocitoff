@@ -6,10 +6,11 @@
 #  )
 
 require "faker"
-5.times do |fake|
-  user = User.create(
-    email: "#{fake}@example.com",
-    password: "test1234"
+5.times do 
+  user = User.create!(
+    email: Faker::Internet.email,
+   # name:  Faker::Name.name,
+    password: Faker::Internet.password(8)
     )
     user.save!
   end

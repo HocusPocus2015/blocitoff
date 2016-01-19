@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def home
-    render test: "<h1>Bloccitoff</h1><p>Welcome to your self destructing to-do list</p>"
+    render text: "<h1>Bloccitoff</h1><p>Welcome to your self destructing to-do list</p>"
   end
 #  before_action :configure_permitted_parameters, if: :devise_controller?
   

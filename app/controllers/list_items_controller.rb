@@ -15,7 +15,7 @@ class ListItemsController < ApplicationController
   
   def destroy
     @list = List.find(params[:list_id])
-    @list_item = Listitem.find(params[:id])
+    @list_item = ListItem.find(params[:id])
     #authorize @list_item
     if @list_item.destroy
       flash[:notice] = "Item deleted"
