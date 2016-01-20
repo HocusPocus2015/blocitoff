@@ -1,39 +1,45 @@
-# admin user
-#admin =User.create!(
-#  name: "Admin",
-#  email: "alicesuckling@live.co.uk",
-#  password: "test1234",
-#  )
-
 require "faker"
-5.times do 
-  user = User.create!(
-    email: Faker::Internet.email,
-   # name:  Faker::Name.name,
-    password: Faker::Internet.password(8)
-    )
-    user.save!
-  end
-#to create 5 users
-users = Users.all
 
+
+#user
+user = User.new(
+  name: "Alice",
+  email: "alicesuckling@live.co.uk",
+  password: "test1234",
+)
+user.skip_confirmation!
+user.save!
+
+#fake user
+user = User.new(
+  email: Faker::Internet.email,
+  name:  Faker::Name.name,
+  password: Faker::Internet.password(8)
+)
+user.skip_confirmation!
+user.save!
+
+#to grab both users
+users = User.all
+
+#to create 5 lists per user
 10.times do
   List.create!(
-    list: lists.sample,
-    body: Faker::Lorem.paragraph
-    )
-  end
-#to create two lists per user
+    title: Faker::Lorem.sentence,
+    user: users.sample
+  )
+end
 
 lists = List.all
 
-30.times do#
+#to create items per list
+30.times do
   ListItem.create!(
     list: lists.sample,
-    body: Faker::Lorem.paragraph
-    )
-  end
-#to create 3 items per list
+    body: Faker::Lorem.paragraph,
+  )
+end
+
 
 puts "Seed finished"
 puts "#{User.count} users created"
