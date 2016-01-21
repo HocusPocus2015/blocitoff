@@ -2,20 +2,16 @@
 <div class="row">
   <div class="col-md-8">
     <% @list.list_items.each do |item| %>
-    <div class="media" id="list_item<%= item.id %>">
-      <div class="media-body">
-        <h4 class="media-heading">
+      <div class="media-heading">
+        <h4 class="media-body">
           <%= item.body %>
           <small>
             Time left to expiry: <%= (item.days_left) %>
+            <%= link_to " ", [@list, item], method: :delete, class: "glyphicon glyphicon-remove", remote: true %>
           </small>
         </h4>
-        
-         <%= link_to " ", [@list, item], method: :delete, class: "glyphicon glyphicon-ok", remote: true %>
-          <%= render "list_items/form" %>
-        </div>
       </div>
-    </div>
     <% end %>
+      <%= render "list_items/form" %>
   </div>
 </div>
