@@ -12,7 +12,7 @@ class ListItemsController < ApplicationController
       render :new
     end
   end
-  
+
   def destroy
     @list = List.find(params[:list_id])
     @list_item = ListItem.find(params[:id])
@@ -22,14 +22,13 @@ class ListItemsController < ApplicationController
     else
       flash[:error] = "There was an error. Please try again"
     end
-    
+
     respond_with(@list_item) do |format|
       format.html { redirect_to list_path(@list) }
     end
   end
-  
+
   def list_item_params
     params.require(:list_item).permit(:body)
   end
 end
-    

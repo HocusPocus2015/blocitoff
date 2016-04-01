@@ -1,5 +1,4 @@
 module ApplicationHelper
-  #before_action :authenticate_user!
   def resource_name
     :user
   end
@@ -7,7 +6,7 @@ module ApplicationHelper
   def resource
     @resource ||= User.new
   end
- 
+
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end

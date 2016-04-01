@@ -1,13 +1,11 @@
 require "faker"
-
-
 #user
 user = User.new(
   name: "Alice",
-  email: "alicesuckling@live.co.uk",
+  email: "text@example.com",
   password: "test1234",
 )
-user.skip_confirmation!
+# user.skip_confirmation!
 user.save!
 
 #fake user
@@ -16,7 +14,7 @@ user = User.new(
   name:  Faker::Name.name,
   password: Faker::Internet.password(8)
 )
-user.skip_confirmation!
+# user.skip_confirmation!
 user.save!
 
 #to grab both users
@@ -39,7 +37,6 @@ lists = List.all
     body: Faker::Lorem.paragraph,
   )
 end
-
 
 puts "Seed finished"
 puts "#{User.count} users created"
