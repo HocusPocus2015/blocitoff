@@ -1,6 +1,6 @@
 ## Blocitoff - a :boom: self-destructing  to-do list application
 
-![Output sample] (https://github.com/HocusPocus2015/blocitoff/blob/master/app/assets/images/myblocitoff.gif)
+![Output sample] (https://github.com/HocusPocus2015/blocitoff/blob/master/app/assets/images/myblocitoff3.gif)
 
 
 | User Stories 
